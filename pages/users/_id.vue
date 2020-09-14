@@ -33,35 +33,29 @@ export default {
 };
 </script>
 
-<style scoped>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
+<style lang="stylus">
+.news-item
+  background-color #fff
+  padding 20px 30px 20px 80px
+  border-bottom 1px solid #eee
+  position relative
+  line-height 20px
+  .score
+    color #ff6600
+    font-size 1.1em
+    font-weight 700
+    position absolute
+    top 50%
+    left 0
+    width 80px
+    text-align center
+    margin-top -10px
+  .meta, .host
+    font-size .85em
+    color #828282
+    a
+      color #828282
+      text-decoration underline
+      &:hover
+        color #ff6600
 </style>
