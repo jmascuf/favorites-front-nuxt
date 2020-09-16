@@ -1,9 +1,6 @@
 <template>
   <div>
-   
-
-
-    <header class="header">
+   <header class="header">
       <nav class="inner">
         <router-link to="/" exact>
           <!-- <img class="logo" src="~/favicon.ico" alt="logo"> -->
@@ -12,13 +9,19 @@
         <router-link to="/users">Users</router-link>
         <router-link to="/new">New</router-link>
         
+        
       </nav>
     </header>
+    <div class="news-list">
+
     <Nuxt />
+    </div>
   </div>
 </template>
 
 <style lang="stylus">
+
+
 body
   font-family -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   font-size 15px
