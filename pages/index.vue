@@ -1,25 +1,22 @@
 <template>
   <div class="container">
     <div>
-      <!-- <Logo /> -->
+
       <h1 class="title">
-        nuxtJs-guide-project
+        top book favorites
       </h1>
-      <div class="links">
-        <!-- <nuxt-link
-          v-for="user in users" 
-          :to="{name: 'user-id', params: {id: user.id}}"
-          :key="user.id"
-          class= "button-grey"
-          >
-          {{user.titles}}
-        </nuxt-link> -->
-      </div>
+      
+      <RegistriesList v-if=books :registries=books media='book'/>
+<!--       <RegistriesList v-if=films :registries=films media='film'/> -->
+      <!-- <router-link to="/topFavorite/book">top books</router-link> -->
+
     </div>
   </div>
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   layout: 'list',
   /* components: {
@@ -41,6 +38,24 @@ export default {
       .catch(err => console.log(err));
   } */
   
+  async asyncData({ error }) {
+    const { data } = await axios.get(
+      `http://localhost:8080/backend/registries/topFavorite/book`
+      
+    );
+    
+    return { books: data.content };
+    
+  },
+ 
+  /* async asyncData({ error }) {
+    const { data } = await axios.get(
+      `http://localhost:8080/backend/registries/topFavorite/film`
+      
+    );
+    
+    return { data.films: data.content };
+  },  */
 
 }
 </script>

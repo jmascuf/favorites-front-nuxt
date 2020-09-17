@@ -4,7 +4,7 @@
       <div class="links">
         <ul>
           <li v-for="item in content" :key="item.id" class="news-item">
-            <nuxt-link :to="`/registry/${item.registry.id}`">
+            <nuxt-link :to="`/assessments/${item.id}`">
               <span class="host">
                 <p >{{item.registry.title}}</p>
               </span>
