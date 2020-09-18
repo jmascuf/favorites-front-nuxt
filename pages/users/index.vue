@@ -26,7 +26,7 @@ export default {
   layout: "list",
 
   async asyncData () {
-    const { data } = await axios.get('http://localhost:8080/backend/users')
+    const { data } = await axios.get('http://localhost:8080/backend/users/recent/10')
     return { users: data.content }
   }
 

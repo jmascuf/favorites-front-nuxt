@@ -1,19 +1,19 @@
 <template>
-  <div class="container">
-    <div>
+    <!-- <div>
+    </div> -->
       <div class="links" v-if="registries">
         <ul>
           <li v-for="registry in registries" :key="registry.id" class="news-item">
             <nuxt-link :to="'/registries/'+registry.id">
               <span
                 class="host"
-              >{{ registry.title }}, {{ registry.author }}. {{ registry.productionDate }}</span>
+              >{{ registry.title }}, {{ registry.author }}. {{ registry.productionDate[0] }}</span>
             </nuxt-link>
           </li>
         </ul>
       </div>
-    </div>
-  </div>
+  <!-- <div class="container">
+  </div> -->
 </template>
 <script>
 export default {

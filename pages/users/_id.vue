@@ -1,16 +1,21 @@
 <template>
   <div class="container">
-    <article>
-      <h1 class="title">{{name}}</h1>
-      <p>{{birdth}}</p>
-      <p>{{city}}</p>
-      <p>{{eMail}}</p>
-      <router-link :to="`/assessments/user/${id}`">Assessments</router-link>
-        
-    </article>
-
+    <p v-if="$fetchState.pending">Fetching posts...</p>
+    <p v-else-if="$fetchState.error">Error while fetching posts: {{ $fetchState.error.message }}</p>
+    <div v-else>
+      <article>
+        <h1 class="title">{{user.name}}</h1>
+        <p>{{user.birdth}}</p>
+        <p>{{user.city}}</p>
+        <p>{{user.eMail}}</p>
+        <!-- <router-link :to="`/assessments/user/${user.id}`">Assessments</router-link> -->
+      </article>
+      <div class="bloque">
+        <h2 class="title">Favorites</h2>
+        <AssessmentsList :assessments="assessments" media="book" />
+      </div>
+    </div>
   </div>
-
 </template>
 
 
@@ -18,25 +23,41 @@
 import axios from "axios";
 
 export default {
-  layout: "detail",
-
-
+  layout: "item-detail",
+  id: String,
   validate({ params }) {
+    this.id=params.id;
     return !isNaN(+params.id);
-  },
-  async asyncData({ params, error }) {
     
-    try {
-      const { data } = await axios.get(
-        `http://localhost:8080/backend/users/${+params.id}`
-      );
-      return data;
-    } catch (e) {
-      error({ message: "User not found", statusCode: 404 });
-    }
+  },
 
-    
+  data() {
+    return {
+      user: {},
+      assessments: [],
+    };
   },
+
+  async fetch() {
+    
+    await axios
+      .get(`http://localhost:8080/backend/users/${+this.$route.params.id}`)
+      .then((res) => (this.user = res.data));
+
+    await axios
+      .get(`http://localhost:8080/backend/assessments/user/${+this.$route.params.id}`)
+      .then((res) => (this.assessments = res.data.content));
+  },
+
+  fetchOnServer: false,
+
+  /*  async asyncData({ params, error }) {
+   
+      await axios.get(`http://localhost:8080/backend/users/${+params.id}`)
+      .then((res) => console.log(data.user, res.data));
+
+      await axios.get(`http://localhost:8080/backend/assessments/user/${+params.id}`)
+      .then((res) => console.log(res.data.content)); 
+  },*/ 
 };
 </script>
-

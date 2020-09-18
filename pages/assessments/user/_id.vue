@@ -27,7 +27,7 @@
 import axios from "axios";
 
 export default {
-  layout: "detail",
+  layout: "item-detail",
 
   validate({ params }) {
     return !isNaN(+params.id);

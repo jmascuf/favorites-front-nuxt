@@ -7,17 +7,22 @@
       <p>{{productionDate}}</p>
  
     </article>
-
+    <a :href="`https://www.google.com/search?q=${title}, ${author}, ${productionDate[0]}`" target="_blank" rel="search" referrerpolicy="">search</a>
   </div>
 
 </template>
 
+no-referrer
+no-referrer-when-downgrade
+origin
+origin-when-cross-origin
+unsafe-url
 
 <script>
 import axios from "axios";
 
 export default {
-  layout: "detail",
+  layout: "item-detail",
 
 
   validate({ params }) {
