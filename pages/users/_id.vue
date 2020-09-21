@@ -12,7 +12,19 @@
       </article>
       <div class="bloque">
         <h2 class="title">Favorites</h2>
-        <AssessmentsList :assessments="assessments" media="book" />
+     
+        <AssessmentsList :assessments="books" v-if=books media="books" categ="fav" />
+        <AssessmentsList :assessments="films" v-if=films media="films" categ="fav" />
+        <AssessmentsList :assessments="albums" v-if=albums media="albums" categ="fav" />
+        <AssessmentsList :assessments="comics" v-if=comics media="comics" categ="fav" />
+        <AssessmentsList :assessments="series" v-if=series media="series" categ="fav" />
+
+        <h2 class="title">Recommended</h2>
+        <AssessmentsList :assessments="books" v-if=books media="books" categ="req" />
+        <AssessmentsList :assessments="films" v-if=films media="films" categ="req" />
+        <AssessmentsList :assessments="albums" v-if=albums media="albums" categ="req" />
+        <AssessmentsList :assessments="comics" v-if=comics media="comics" categ="req" />
+        <AssessmentsList :assessments="series" v-if=series media="series" categ="req" />
       </div>
     </div>
   </div>
@@ -35,6 +47,11 @@ export default {
     return {
       user: {},
       assessments: [],
+      books: [],
+      films: [],
+      albums: [],
+      comics: [],
+      series: [],
     };
   },
 
@@ -45,8 +62,20 @@ export default {
       .then((res) => (this.user = res.data));
 
     await axios
-      .get(`http://localhost:8080/backend/assessments/user/${+this.$route.params.id}`)
-      .then((res) => (this.assessments = res.data.content));
+      .get(`http://localhost:8080/backend/assessments/user/${+this.$route.params.id}/book`)
+      .then((res) => (this.books = res.data.content));
+    await axios
+      .get(`http://localhost:8080/backend/assessments/user/${+this.$route.params.id}/film`)
+      .then((res) => (this.films = res.data.content));
+    await axios
+      .get(`http://localhost:8080/backend/assessments/user/${+this.$route.params.id}/album`)
+      .then((res) => (this.albums = res.data.content));
+    await axios
+      .get(`http://localhost:8080/backend/assessments/user/${+this.$route.params.id}/comic`)
+      .then((res) => (this.comics = res.data.content));
+    await axios
+      .get(`http://localhost:8080/backend/assessments/user/${+this.$route.params.id}/serie`)
+      .then((res) => (this.series = res.data.content));
   },
 
   fetchOnServer: false,

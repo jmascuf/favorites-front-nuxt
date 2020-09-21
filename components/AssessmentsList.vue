@@ -1,11 +1,12 @@
 <template>
-    <!-- <div>
-    </div> -->
-      <div class="links" v-if="assessments">
+     <div class="links" v-if="assessments">
+       <h3 class="subtitle">{{media}}</h3>
         <ul>
           <li v-for="assessment in assessments" :key="assessment.id" class="news-item">
             
-            <nuxt-link :to="'/assessments/'+assessment.id">
+            <nuxt-link :to="'/assessments/'+assessment.id" 
+            v-if="(categ=='req' && assessment.recommend!=0) || (categ=='fav' && assessment.favorite!=0)  "
+            >
               <span
                 class="host"
               >{{ assessment.registry.title }}, {{ assessment.registry.author }}. {{ assessment.registry.productionDate[0] }}</span>
@@ -23,7 +24,8 @@
 export default {
   props: {
     assessments: Array,
-    media: String
+    media: String,
+    categ: String,
   },
 
 };

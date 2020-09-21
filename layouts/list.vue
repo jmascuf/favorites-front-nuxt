@@ -6,6 +6,11 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  layout: 'default'
+}
+</script>
 
 <style lang="stylus">
 .title {
@@ -15,6 +20,14 @@
   font-size: 2em;
   color: #35495e;
   letter-spacing: 0.1em;
+}
+
+.subtitle {
+  font-weight: 300;
+  font-size: 1.6em;
+  color: #526488;
+  word-spacing: 5px;
+  padding-bottom: 15px;
 }
 
 article 
