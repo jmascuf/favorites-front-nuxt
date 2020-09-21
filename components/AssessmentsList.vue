@@ -9,10 +9,10 @@
               <span
                 class="host"
               >{{ assessment.registry.title }}, {{ assessment.registry.author }}. {{ assessment.registry.productionDate[0] }}</span>
+            <span class="pull-right notes" title="Notes" >{{assessment.notes}}</span>
+            <span class="pull-right" title="Recommend" >{{assessment.recommend}}</span>
+            <span class="pull-right" title="Favorite" >{{assessment.favorite}}</span>
             </nuxt-link>
-            <span>{{assessment.favorite}}</span>
-            <span>{{assessment.recommed}}</span>
-            <span>{{assessment.notes}}</span>
           </li>
         </ul>
       </div>
@@ -66,3 +66,18 @@ rel	"assessments"
 href	"http://localhost:8080/backend/assessments/user/42"
  */
  -->
+
+ <style lang="stylus" scoped>
+ .pull-right
+   float: right
+   width 2rem
+   color red
+   fon-size 13rem
+ 
+ .notes
+    width: 5rem;
+    color: #afafaf;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+ </style>

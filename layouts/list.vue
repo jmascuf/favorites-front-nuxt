@@ -8,6 +8,21 @@
 </template>
 
 <style lang="stylus">
+.title {
+  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  display: block;
+  font-weight: 300;
+  font-size: 2em;
+  color: #35495e;
+  letter-spacing: 0.1em;
+}
+
+article 
+  margin 4rem
+  
+.bloque
+  margin 4rem
+
 .news-item {
   background-color: #fff;
   border-bottom: 1px solid #eee;

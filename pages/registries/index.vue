@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <div>
-      <h1 class="title">nuxtJs-guide-project</h1>
+    <div class=links>
+      <h1 class="title">Registries</h1>
       <RegistriesList v-if="registries" :registries=registries />
     </div> 
   </div>

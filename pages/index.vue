@@ -2,7 +2,7 @@
   <div class="container">
     <p v-if="$fetchState.pending">Fetching posts...</p>
     <p v-else-if="$fetchState.error">Error while fetching posts: {{ $fetchState.error.message }}</p>
-    <div v-else>
+    <div v-else class=links>
       <div class="bloque">
         <h2 class="title">Books - Top favorites</h2>
         <RegistriesList :registries="books" media="book" />
@@ -98,7 +98,7 @@ export default {
 }
 
 .links {
-  padding-top: 15px;
+  width:100%;
 }
 </style>
 
@@ -213,12 +213,5 @@ a {
   }
 }
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 2em;
-  color: #35495e;
-  letter-spacing: 0.1em;
-}
+
 </style>

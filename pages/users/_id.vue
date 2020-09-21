@@ -2,7 +2,7 @@
   <div class="container">
     <p v-if="$fetchState.pending">Fetching posts...</p>
     <p v-else-if="$fetchState.error">Error while fetching posts: {{ $fetchState.error.message }}</p>
-    <div v-else>
+    <div v-else class=links>
       <article>
         <h1 class="title">{{user.name}}</h1>
         <p>{{user.birdth}}</p>
@@ -23,7 +23,7 @@
 import axios from "axios";
 
 export default {
-  layout: "item-detail",
+  layout: "list",
   id: String,
   validate({ params }) {
     this.id=params.id;
@@ -61,3 +61,4 @@ export default {
   },*/ 
 };
 </script>
+
