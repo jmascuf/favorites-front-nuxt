@@ -8,6 +8,19 @@
 </template>
 
 <style lang="stylus">
+.pull-right
+   float: right
+   width 2rem
+   color red
+   fon-size 13rem
+ 
+.notes
+  width: 5rem;
+  color: #afafaf;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   font-size: 15px;

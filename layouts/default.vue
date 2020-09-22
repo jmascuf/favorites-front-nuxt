@@ -115,6 +115,19 @@ a {
   margin: 5em 0;
 }
 
+.news-list {
+  position: absolute;
+  margin: 30px 0;
+  width: 100%;
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+
 @media (max-width: 860px) {
   .header .inner {
     padding: 15px 30px;

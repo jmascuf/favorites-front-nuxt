@@ -70,16 +70,5 @@ href	"http://localhost:8080/backend/assessments/user/42"
  -->
 
  <style lang="stylus" scoped>
- .pull-right
-   float: right
-   width 2rem
-   color red
-   fon-size 13rem
  
- .notes
-    width: 5rem;
-    color: #afafaf;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
  </style>

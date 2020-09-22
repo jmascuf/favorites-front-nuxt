@@ -102,18 +102,7 @@ article
   }
 }
 
-.news-list {
-  position: absolute;
-  margin: 30px 0;
-  width: 100%;
-  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
 
-  ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-}
 
 .slide-left-enter, .slide-right-leave-to {
   opacity: 0;
